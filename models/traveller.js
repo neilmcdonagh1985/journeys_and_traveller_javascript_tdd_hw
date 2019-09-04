@@ -36,17 +36,15 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
+  arrayOfTransport = this.journeys.map((journey) => {
+    return journey.transport;
+  })
+  const unique = (value, index, self) => {
+    return self.indexOf(value) === index;
+  }
+  const uniqueTransport = arrayOfTransport.filter(unique);
+  return uniqueTransport
 };
 
 
 module.exports = Traveller;
-
-
-// Traveller:
-//
-// should have a collection of journeys
-// should be able to get the journeys start locations
-// should be able to get the journeys end locations
-// should be able to get journeys by transport
-// should be able to get journeys over a certain distance
